@@ -14,6 +14,7 @@ router.get('/token/get', async (ctx, next) => {
 
 // 主动刷新token
 router.post('/token/refresh', async (ctx, next) => {
+  
   let res = await AccessToken.refreshToken()
   if(!res) throw new global.customError.ServiceError()
   ctx.status = 200
